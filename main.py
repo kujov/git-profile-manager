@@ -1,3 +1,4 @@
+import sys
 import argparse
 import os
 from enum import Enum
@@ -16,10 +17,11 @@ class GPM:
     def init_parser(self):
         self.parser = argparse.ArgumentParser(
                     prog='Git Profile Manager',
-                    description='Managing multiple git profiles with ease',
-                    epilog='Text at the bottom of help')
+                    description='Managing multiple git profiles with ease')
         
-        self.parser.add_argument('action', choices=['get', 'set', 'edit'])
+        self.parser.add_argument('action', help='', choices=['get', 'set', 'edit', 'list'])
+
+        self.parser.add_argument('profile', choices=[profile[0] for profile in self.get_profiles()])
     
     def read_config(self):
         with open(self.config_file) as config:
@@ -44,7 +46,7 @@ class GPM:
     def get_current_profile(self):
         print("Your current active profile:")
         print(f'Username:   {os.popen("git config user.name").read().rstrip()}')
-        print(f'Email:      {os.popen("git config user.email").read().rstrip()}')
+        print(f'Email:      {os.popen("git config user.email").read().rstrip()}\n')
 
     def match_profile(self, profile):
         for profilee in self.get_profiles():
@@ -54,9 +56,28 @@ class GPM:
     def set_profile(self, profile):
         self.match_profile(profile)
 
-        
 
-gpm = GPM()
-gpm.print_profiles()
+def main():
+    gpm = GPM()
 
+    if len(sys.argv) == 1:
+        gpm.get_current_profile()
+        gpm.parser.print_help()
+        return
 
+    args = gpm.parser.parse_args()
+
+    if args.action == 'get':
+        gpm.get_current_profile()
+    elif args.action == 'set':
+        if args.profile:
+            gpm.set_profile(args.profile)
+        else:
+            print("Error: Profile name is required for 'set' action")
+    elif args.action == 'edit':
+        os.system(f'vi {gpm.config_file}')
+    elif args.action == 'list':
+        gpm.print_profiles()
+
+if __name__ == "__main__":
+    main()
