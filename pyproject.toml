@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "GPM"
+version = "1.0.0"
+authors = [{name="Kenin Kujovic", email="me@keninkujovic.com" }]
+description = "Simple cli for managing git profiles"
+readme = "README.md"
+dynamic = ["dependencies"]
+requires-python = ">=3.9"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.scripts]
+gpm = "main:main"
+
+[project.urls]
+"Homepage" = "https://keninkujovic.com/tools/git-profile-manager"
+"Bug Tracker" = "https://github.com/kujov/git-profile-manager/issues"
