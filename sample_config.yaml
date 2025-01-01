@@ -1,0 +1,8 @@
+profiles:
+  dev1:
+    mail: dev1@keninkujovic.com
+    username: dev1keninkujovic
+
+  dev2:
+    mail: dev2@keninkujovic.com
+    username: dev2keninkujovic
