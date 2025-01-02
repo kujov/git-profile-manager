@@ -9,8 +9,17 @@ import yaml
 class GPM:
 
     def __init__(self):
+        self.config_file = os.path.expanduser("~/.gpm/config.yaml")
+        self.sample_config = {
+                'profiles': {
+                    'default': {
+                        'username': 'your_username',
+                        'email': 'your_email@example.com'
+                    }
+                }
+            }
+
         self.init_parser()
-        self.config_file = "~/.gpm/config.yaml"
 
     def init_parser(self):
         self.parser = argparse.ArgumentParser(
@@ -22,6 +31,11 @@ class GPM:
         self.parser.add_argument('profile', choices=[profile[0] for profile in self.get_profiles()])
     
     def read_config(self):
+        if not os.path.exists(self.config_file):
+            os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
+            with open(self.config_file, 'w') as config:
+                yaml.dump(self.sample_config, config)
+
         with open(self.config_file) as config:
             try:
                 return yaml.safe_load(config)
