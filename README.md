@@ -2,7 +2,25 @@
 
 ## Installation
 
-I'm working to make the installation possible with Homebrew.
+To install the Git Profile Manger with Hombrew follow the steps:
+
+```console
+brew tap kujov/tap 
+```
+
+and
+
+```console
+brew install git-profile-manager              
+```
+
+verify with 
+
+```console
+gpm
+```
+
+and you should see your current git user and the availible actions for the tool.
 
 ## Usage
 
