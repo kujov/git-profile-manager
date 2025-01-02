@@ -7,12 +7,10 @@ import yaml
 
 
 class GPM:
-    # i will think about storing the config later
-    # config_file = "~/.gpm/config.yaml"
-    config_file = "sample_config.yaml"
 
     def __init__(self):
         self.init_parser()
+        self.config_file = "~/.gpm/config.yaml"
 
     def init_parser(self):
         self.parser = argparse.ArgumentParser(
