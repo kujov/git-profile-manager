@@ -28,7 +28,7 @@ class GPM:
         
         self.parser.add_argument('action', help='', choices=['get', 'set', 'edit', 'list'])
 
-        self.parser.add_argument('profile', choices=[profile[0] for profile in self.get_profiles()])
+        self.parser.add_argument('profile', nargs='?', choices=[profile[0] for profile in self.get_profiles()])
     
     def read_config(self):
         if not os.path.exists(self.config_file):
