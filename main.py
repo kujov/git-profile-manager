@@ -52,7 +52,7 @@ class GPM:
     def print_profiles(self):
         for profile in self.get_profiles():
             print(f'{profile[0]}:')
-            print(f'    {profile[1]['mail']}')
+            print(f'    {profile[1]['email']}')
             print(f'    {profile[1]['username']}\n')
 
     def get_current_profile(self):
