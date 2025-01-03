@@ -60,11 +60,13 @@ class GPM:
         print(f'Username:   {os.popen("git config user.name").read().rstrip()}')
         print(f'Email:      {os.popen("git config user.email").read().rstrip()}\n')
 
-    def match_profile(self, profile):
-        for profilee in self.get_profiles():
-            if profilee[0] == profile:
-                print(f'Matching profile {profilee[0]}')
-                return profilee 
+    def match_profile(self, profile_name):
+        for profile in self.get_profiles():
+            if profile[0] == profile_name:
+                print(f'Matching profile {profile[0]}')
+                return profile
+        print(f'No matching profile found for {profile_name}')
+        return None
 
     def set_profile(self, profile):
         profile = self.match_profile(profile)
