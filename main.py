@@ -63,10 +63,13 @@ class GPM:
     def match_profile(self, profile):
         for profilee in self.get_profiles():
             if profilee[0] == profile:
-                print(f'Matching profile {profilee[0]}') 
+                print(f'Matching profile {profilee[0]}')
+                return profilee 
 
     def set_profile(self, profile):
-        self.match_profile(profile)
+        profile = self.match_profile(profile)
+        os.system(f'git config user.name {profile[1]["username"]}')
+        os.system(f'git config user.email {profile[1]["email"]}')
 
 
 def main():
