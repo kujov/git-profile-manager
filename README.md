@@ -4,6 +4,9 @@
 
 GPM is a **straightforward Git profile manager** that simplifies switching between your profiles.
 
+[How it works](#how-it-works) •
+[Installation](#installation)
+
 </div>
 
 ![Demo image][image]
@@ -30,7 +33,7 @@ gpm
 
 and you should see your current git user and the availible actions for the tool.
 
-## Usage
+## How it works
 
 The Git Profile Manager includes the following actions:
 - get: shows active profile
