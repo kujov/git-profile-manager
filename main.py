@@ -32,10 +32,10 @@ class GPM:
     def read_config(self):
         if not os.path.exists(self.config_file):
             os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
-            with open(self.config_file, 'w') as config:
+            with open(self.config_file, 'w', encoding="utf-8") as config:
                 yaml.dump(self.sample_config, config)
 
-        with open(self.config_file) as config:
+        with open(self.config_file, encoding="utf-8") as config:
             try:
                 return yaml.safe_load(config)
             except yaml.YAMLError as exc:
