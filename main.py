@@ -68,7 +68,7 @@ class GPM:
     def match_profile(self, profile_name):
         for profile in self.get_profiles():
             if profile[0] == profile_name:
-                print(f'Matching profile {profile[0]}')
+                print(f'Setting profile {profile[0]}')
                 return profile
         print(f'No matching profile found for {profile_name}')
         return None
