@@ -1,5 +1,5 @@
 """Simple cli for managing multiple git profiles/configs"""
-# pylint: disable=missing-function-docstring
+# pylint: disable=missing-function-docstring, missing-class-docstring
 import argparse
 import os
 import sys
