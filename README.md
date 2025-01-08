@@ -1,4 +1,12 @@
+<div align="center">
+
 # Git Profile Manager
+
+GPM is a **straightforward Git profile manager** that simplifies switching between your profiles.
+
+</div>
+
+![Demo image][image]
 
 ## Installation
 
@@ -45,3 +53,5 @@ Also install the requirements and create a venv.
 ## Bugs & Feature Requests
 
 Create an Issue [on the issue page](https://github.com/kujov/git-profile-manager/issues/new).
+
+[image]: assets/gpm.jpeg
