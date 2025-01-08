@@ -9,6 +9,10 @@ import yaml
 
 class GPM:
 
+    class ConfigError(Exception):
+        def __init__(self, message):
+            super().__init__(message)
+
     def __init__(self):
         self.config_file = os.path.expanduser("~/.gpm/config.yaml")
         self.sample_config = {
@@ -41,7 +45,7 @@ class GPM:
             try:
                 return yaml.safe_load(config)
             except yaml.YAMLError as exc:
-                print(exc)
+                raise self.ConfigError(f"Failed to parse configuration file: {exc}")
 
     def get_profiles(self):
         profiles = []
