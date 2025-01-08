@@ -1,3 +1,4 @@
+# pylint: disable=missing-function-docstring
 import argparse
 import os
 import sys
