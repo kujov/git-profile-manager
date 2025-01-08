@@ -24,11 +24,11 @@ class GPM:
         self.parser = argparse.ArgumentParser(
                     prog='Git Profile Manager',
                     description='Managing multiple git profiles with ease')
-        
+
         self.parser.add_argument('action', help='', choices=['get', 'set', 'edit', 'list'])
 
         self.parser.add_argument('profile', nargs='?', choices=[profile[0] for profile in self.get_profiles()])
-    
+
     def read_config(self):
         if not os.path.exists(self.config_file):
             os.makedirs(os.path.dirname(self.config_file), exist_ok=True)
@@ -45,9 +45,9 @@ class GPM:
         profiles = []
         for profile_name, profile in self.read_config()["profiles"].items():
             profiles.append((profile_name, profile))
-        
+
         return profiles
-    
+
     def print_profiles(self):
         for profile in self.get_profiles():
             print(f'{profile[0]}:')
